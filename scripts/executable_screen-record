@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -e
+ssrt --select --container webm --codec vp8 -m
+sleep 2
+# environment variables
+: "${SSR_CONFIG_DIR:=$HOME/.ssr}"
+
+declare -r _confdir=${__o[config-dir]:-$SSR_CONFIG_DIR}
+declare -r _ssrcnf="$_confdir"/settings.conf
+declare -r _ssrsts="$_confdir"/stats
+getoutputpath() {
+
+  # in config (_ssrcnf) get directory
+  # file=/home/bud/ssrop.mkv
+  # in stats file (_ssrsts) get filename
+  # file_name  ssrop-2020-06-16_19.24.43.mkv
+  
+  [[ -f $_ssrsts ]] && awk '
+    /^file=/ { gsub(/^file=|[^/]+$/,"")    ; dir=$0 }
+    /^file_name/ { gsub(/^file_name\s+/,""); fil=$0 }
+    END { print dir fil }
+  ' "$_ssrcnf" "$_ssrsts"
+}
+  opf=$(getoutputpath)
+
+
+SSR_OUTPUTFILEe="${opf:-}"
+echo -e "#!/usr/bin/env bash\n$HOME/scripts/image-b2 ${SSR_OUTPUTFILEe}" > $HOME/.ssr/events/stop

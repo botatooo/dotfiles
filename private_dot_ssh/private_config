@@ -1,0 +1,4 @@
+Host pakt
+    User aa
+    HostName vps.catvibers.me
+    Port 42069

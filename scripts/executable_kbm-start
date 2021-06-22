@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# I currently dont use KBM anynmore but I will when i switch away from kde.
+kbm daemon

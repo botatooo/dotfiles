@@ -1,0 +1,4 @@
+#!/bin/sh
+pipewire &
+# remove when new laptop
+xrandr-watcher $HOME/.xrandr-changed &

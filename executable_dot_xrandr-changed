@@ -1,0 +1,3 @@
+#!/bin/sh
+# remove when new laptop
+xinput --map-to-output "ELAN Touchscreen" $(xrandr --prop | grep eDP | cut -f1 -d" ")
