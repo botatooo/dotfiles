@@ -1,0 +1,16 @@
+{
+  "IS_MAXIMIZED": false,
+  "IS_MINIMIZED": false,
+  "MIN_WIDTH": 0,
+  "MIN_HEIGHT": 0,
+  "WINDOW_BOUNDS": {
+    "x": 0,
+    "y": 651,
+    "width": 960,
+    "height": 393
+  },
+  "BACKGROUND_COLOR": "#202225",
+  "OPEN_ON_STARTUP": true,
+  "MINIMIZE_TO_TRAY": true,
+  "enableHardwareAcceleration": true
+}
