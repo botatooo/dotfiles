@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
 cat > /tmp/image.png
-/home/aagaming/scripts/image-b2 /tmp/image.png
+$HOME/scripts/image-b2 /tmp/image.png
