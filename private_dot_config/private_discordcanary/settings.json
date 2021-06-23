@@ -5,9 +5,9 @@
   "MIN_HEIGHT": 0,
   "WINDOW_BOUNDS": {
     "x": 0,
-    "y": 29,
-    "width": 1920,
-    "height": 1015
+    "y": 500,
+    "width": 1181,
+    "height": 544
   },
   "BACKGROUND_COLOR": "#202225",
   "OPEN_ON_STARTUP": true,
