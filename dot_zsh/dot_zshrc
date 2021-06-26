@@ -48,4 +48,6 @@ zinit lucid wait for \
 	lukechilds/zsh-nvm \
 	https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
 
+export PATH=$PATH:$(yarn global bin):$HOME/scripts
+
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
