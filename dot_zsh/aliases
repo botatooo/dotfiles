@@ -9,5 +9,3 @@ alias updatemirrors='sudo reflector --country United\ States -l 200 --sort rate 
 alias ssh='TERM=xterm ssh'
 
 alias pakt='mosh pakt -- byobu'
-
-[ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private
