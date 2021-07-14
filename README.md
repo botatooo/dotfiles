@@ -1,1 +1,1 @@
-run `sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply ~catvibers.me/aa/dotfiles` to install
+run `sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply https://git.catvibers.me/aa/dotfiles` to install
