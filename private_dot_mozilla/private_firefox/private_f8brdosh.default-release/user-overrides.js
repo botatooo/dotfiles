@@ -58,3 +58,5 @@ user_pref("privacy.clearOnShutdown.offlineApps", false);
 user_pref("privacy.clearOnShutdown.openWindows", false);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
+
+user_pref("layers.acceleration.force-enabled", true);
