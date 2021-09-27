@@ -2,8 +2,3 @@ Host pakt
     User aa
     HostName vps.catvibers.me
     Port 42069
-
-Host ***REMOVED***
-    HostName ***REMOVED***
-    User aa
-    Port ***REMOVED***
