@@ -10,4 +10,6 @@ alias ssh='TERM=xterm ssh'
 
 alias pakt='mosh pakt -- tmux'
 
+alias tb='nc termbin.com 9999'
+
 [ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private

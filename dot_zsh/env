@@ -4,9 +4,6 @@ VISUAL="code -w" \
 EDITOR=micro \
 HISTFILE=~/.priv/zsh_history \
 HISTSIZE=10000 \
-SAVEHIST=10000 \
-DEVKITPRO=/opt/devkitpro \
-DEVKITARM=/opt/devkitpro/devkitARM \
-DEVKITPPC=/opt/devkitpro/devkitPPC
+SAVEHIST=10000
 
 setopt appendhistory
