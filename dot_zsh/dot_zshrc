@@ -46,7 +46,7 @@ zinit lucid wait for \
 	atload"!_zsh_autosuggest_start" \
 		zsh-users/zsh-autosuggestions \
 	lukechilds/zsh-nvm \
-#	https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
+	https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
 
 export PATH=$PATH:$(yarn global bin):$HOME/scripts
 
