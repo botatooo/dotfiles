@@ -60,3 +60,9 @@ user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
 
 user_pref("layers.acceleration.force-enabled", true);
+
+// stupid dumb mozilla
+user_pref("mousewheel.default.delta_multiplier_x", 60);
+user_pref("mousewheel.default.delta_multiplier_y", 60);
+user_pref("mousewheel.default.delta_multiplier_z", 60);
+user_pref("mousewheel.min_line_scroll_amount", 90); // get back to 5 lines from the above changes
