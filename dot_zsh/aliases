@@ -8,8 +8,10 @@ alias updatemirrors='sudo reflector --country United\ States -l 200 --sort rate 
 
 alias ssh='TERM=xterm ssh'
 
-alias pakt='mosh pakt -- tmux'
+alias pakt='mosh pakt -- byobu'
 
 alias tb='nc termbin.com 9999'
+
+alias icat='kitty +kitten icat'
 
 [ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private

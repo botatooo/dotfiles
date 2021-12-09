@@ -141,7 +141,7 @@ toolBarFont=Roboto,11,-1,5,50,0,0,0,0,0,Regular
 widgetStyle=Breeze
 
 [Icons]
-Theme=breeze-dark
+Theme=BreezeRainbowFolders
 
 [KDE]
 ShowIconsInMenuItems=true
