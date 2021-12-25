@@ -14,4 +14,6 @@ alias tb='nc termbin.com 9999'
 
 alias icat='kitty +kitten icat'
 
+alias code='codium'
+
 [ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private

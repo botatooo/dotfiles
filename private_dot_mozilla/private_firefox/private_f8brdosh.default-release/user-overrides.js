@@ -58,6 +58,10 @@ user_pref("privacy.clearOnShutdown.offlineApps", false);
 user_pref("privacy.clearOnShutdown.openWindows", false);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
+user_pref("browser.sessionstore.privacy_level", 0);
+user_pref("network.cookie.lifetimePolicy", 0);
+user_pref("network.cookie.thirdparty.sessionOnly", false);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly", false); // [FF58+]
 
 user_pref("layers.acceleration.force-enabled", true);
 
@@ -66,3 +70,8 @@ user_pref("mousewheel.default.delta_multiplier_x", 60);
 user_pref("mousewheel.default.delta_multiplier_y", 60);
 user_pref("mousewheel.default.delta_multiplier_z", 60);
 user_pref("mousewheel.min_line_scroll_amount", 90); // get back to 5 lines from the above changes
+user_pref("extensions.pocket.enabled", false);
+
+// userchrome
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.compactmode.show", true);
