@@ -551,6 +551,7 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+-- https://stackoverflow.com/a/51687321/13174603
 screen.connect_signal("arrange", function (s)
     local max = s.selected_tag.layout.name == "max"
     local only_one = #s.tiled_clients == 1 -- use tiled_clients so that other floating windows don't affect the count
