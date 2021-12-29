@@ -68,6 +68,7 @@ end
 local vcontrol = class()
 
 function vcontrol:init(args)
+    first = false
     self.callbacks = {}
     self.cmd = "amixer"
     self.device = args.device or nil
@@ -244,6 +245,10 @@ function vwidget:show_menu()
         self.menu = vwidget:create_menu()
         self.menu:show()
         self.menu.wibox:connect_signal("property::visible", function()
+            self.menu = nil
+        end)
+        self.menu.wibox:connect_signal("mouse::leave", function()
+            self.menu:hide()
             self.menu = nil
         end)
     end
