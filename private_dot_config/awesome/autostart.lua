@@ -30,9 +30,6 @@ end
 
 run_once(autostarts)
 
-awful.spawn.with_shell("killall alttab -S SIGINT")
-awful.spawn.with_shell("alttab -fg \"#d58681\" -bg \"#4a4a4a\" -frame \"#eb564d\" -t 128x150 -i 127x64")
-
 awful.spawn.with_shell("pgrep -x pipewire > /dev/null || pipewire")
 
 awful.util.spawn("light -S 60", false)

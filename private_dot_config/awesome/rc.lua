@@ -223,6 +223,7 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 require("autostart")
+local switcher = require("awesome-switcher")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local shift = "Shift"
 local alt = "Mod1"
@@ -343,7 +344,15 @@ globalkeys = gears.table.join(
     awful.key({modkey}, "Escape", function() awful.spawn("rofi -show drun -show-icons -theme Arc-Dark --width 22", false) end),
     awful.key({}, "Print", function() awful.spawn("flameshot gui", false) end),
     awful.key({modkey}, "l", function() awful.spawn("xsecurelock", false) end),
-
+    awful.key({ "Mod1",           }, "Tab",
+      function ()
+          switcher.switch( 1, "Mod1", "Alt_L", "Shift", "Tab")
+      end),
+    
+    awful.key({ "Mod1", "Shift"   }, "Tab",
+      function ()
+          switcher.switch(-1, "Mod1", "Alt_L", "Shift", "Tab")
+      end),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
         volume:up() end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
