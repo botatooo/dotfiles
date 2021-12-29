@@ -114,9 +114,6 @@ mylauncher:connect_signal("button::press", function (c) awful.util.spawn("rofi -
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock(" %a %b %d %l:%M%p ", 15)
@@ -208,7 +205,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
             volume,
             battery_widget({ timeout = 30, show_current_level = true, display_notification = true, warning_msg_title = "Low Battery", warning_msg_text = "" }),
