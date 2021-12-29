@@ -35,4 +35,4 @@ awful.spawn.with_shell("alttab -fg \"#d58681\" -bg \"#4a4a4a\" -frame \"#eb564d\
 
 awful.spawn.with_shell("pgrep -x pipewire > /dev/null || pipewire")
 
-awful.util.spawn("light -S 60")
+awful.util.spawn("light -S 60", false)

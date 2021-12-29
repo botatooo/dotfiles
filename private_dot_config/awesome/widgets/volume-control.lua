@@ -236,7 +236,7 @@ function vwidget:show_menu()
     if self.menu then
         self.menu:hide()
     else
-        self.menu = self:create_menu()
+        self.menu = vwidget:create_menu()
         self.menu:show()
         self.menu.wibox:connect_signal("property::visible", function()
             self.menu = nil
