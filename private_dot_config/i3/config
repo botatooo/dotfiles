@@ -72,6 +72,7 @@ bindsym $alt+d exec --no-startup-id "discord"
 bindsym $alt+c exec --no-startup-id "codium"
 bindsym $alt+e exec --no-startup-id "element-desktop"
 bindsym $alt+x exec --no-startup-id "dolphin"
+bindsym $alt+t exec --no-startup-id "kitty"
 
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
 
