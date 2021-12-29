@@ -9,6 +9,7 @@ local timer = gears.timer or timer
 local spawn = awful.spawn or awful.util.spawn
 local watch = awful.spawn and awful.spawn.with_line_callback
 
+local first = false
 
 ------------------------------------------
 -- Private utility functions
@@ -233,6 +234,10 @@ function vwidget:create_menu()
 end
 
 function vwidget:show_menu()
+    if not first then
+        first = true
+        return
+    end
     if self.menu then
         self.menu:hide()
     else
