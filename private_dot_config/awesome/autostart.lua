@@ -10,6 +10,7 @@ local autostarts =
     -- "discord --start-minimized",
     -- "steam -silent",
     "copyq",
+    "flameshot",
     "mons -a -x $HOME/scripts/monitor.sh"
 }
 

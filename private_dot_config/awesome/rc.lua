@@ -344,7 +344,8 @@ globalkeys = gears.table.join(
     awful.key({alt}, "e", function() awful.spawn("element-desktop", false) end),
     awful.key({alt}, "x", function() awful.spawn("dolphin", false) end),
     awful.key({alt}, "t", function() awful.spawn("kitty", false) end),
-    awful.key({modkey}, "Escape", function() awful.spawn("rofi -show drun -show-icons -theme Arc-Dark --width 22") end),
+    awful.key({modkey}, "Escape", function() awful.spawn("rofi -show drun -show-icons -theme Arc-Dark --width 22", false) end),
+    awful.key({}, "Print", function() awful.spawn("flameshot gui", false) end),
 
     awful.key({ }, "XF86AudioRaiseVolume", function ()
         volume:up() end),
