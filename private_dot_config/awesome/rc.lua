@@ -285,9 +285,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, shift   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey, control, shift}, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey, control, shift}, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey, shift   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
@@ -342,6 +342,7 @@ globalkeys = gears.table.join(
     awful.key({alt}, "t", function() awful.spawn("kitty", false) end),
     awful.key({modkey}, "Escape", function() awful.spawn("rofi -show drun -show-icons -theme Arc-Dark --width 22", false) end),
     awful.key({}, "Print", function() awful.spawn("flameshot gui", false) end),
+    awful.key({modkey}, "l", function() awful.spawn("xsecurelock", false) end),
 
     awful.key({ }, "XF86AudioRaiseVolume", function ()
         volume:up() end),
