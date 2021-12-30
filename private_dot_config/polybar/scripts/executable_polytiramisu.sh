@@ -49,7 +49,7 @@ tiramisu -o '#summary #body' |
         fi
 
         if [ $has_previous == true ]; then
-            kill $prev_pid || true
+            kill $prev_pid 2>&1 >/dev/null || true
         fi
 
         # Display notification for the duration time:
