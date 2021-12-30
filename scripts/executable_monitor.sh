@@ -17,3 +17,5 @@ case ${MONS_NUMBER} in
         # Handle it manually
         ;;
 esac
+
+feh --bg-scale /usr/share/wallpapers/MilkyWay/contents/images/5120x2880.png
