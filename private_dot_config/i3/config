@@ -81,7 +81,7 @@ bindsym $alt+e exec --no-startup-id "element-desktop"
 bindsym $alt+x exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "kitty"
 
-bindsym $mod+Print exec --no-startup-id "flameshot gui"
+bindsym Print exec --no-startup-id "flameshot gui"
 
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
 
