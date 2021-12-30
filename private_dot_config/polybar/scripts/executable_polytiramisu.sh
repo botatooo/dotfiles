@@ -14,6 +14,21 @@ use_nerd_font="false"
 # Stop old tiramisu processes if any:
 pgrep -x tiramisu >/dev/null && killall tiramisu
 
+prev_pid=bruh
+has_previous=false
+
+resetloop()
+{
+    sleep 10
+    echo " "
+}
+
+changetext()
+{
+    echo " $line" # bubble icon in front
+    sleep "$display_duration"
+}
+
 # Start a new tiramisu process:
 tiramisu -o '#summary #body' |
     while read -r line; do
@@ -33,8 +48,14 @@ tiramisu -o '#summary #body' |
             line="$(echo "$line" | cut -c1-$((char_limit-1)))…"
         fi
 
+        if [ $has_previous == true ]; then
+            kill $prev_pid || true
+        fi
+
         # Display notification for the duration time:
-        echo " $line" # bubble icon in front
-        sleep "$display_duration"
-        echo " "
+
+        changetext &
+        has_previous=true
+        resetloop &
+        prev_pid=$!
     done
