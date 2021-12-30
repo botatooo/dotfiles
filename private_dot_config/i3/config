@@ -41,9 +41,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id copyq
+exec --no-startup-id mons -a -x $HOME/scripts/monitor.sh
+exec --no-startup-id flameshot
 
 exec_always --no-startup-id ~/scripts/bar
 
@@ -58,7 +61,7 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+w kill
-bindsym $mod+x move scratchpad
+bindsym $mod+x move scratchpad; scratchpad show; scratchpad show
 bindsym $mod+z scratchpad show
 bindsym $mod+c floating disable
 
@@ -77,6 +80,8 @@ bindsym $alt+c exec --no-startup-id "codium"
 bindsym $alt+e exec --no-startup-id "element-desktop"
 bindsym $alt+x exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "kitty"
+
+bindsym $mod+Print exec --no-startup-id "flameshot gui"
 
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
 
@@ -99,10 +104,10 @@ bindsym $mod+Right focus right
 # bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left exec --no-startup-id i3l move left
-bindsym $mod+Shift+Down exec --no-startup-id i3l move down
-bindsym $mod+Shift+Up exec --no-startup-id i3l move up
-bindsym $mod+Shift+Right exec --no-startup-id i3l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -174,17 +179,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-set $i3l autosplit to workspace $ws1
-set $i3l autosplit to workspace $ws2
-set $i3l autosplit to workspace $ws3
-set $i3l autosplit to workspace $ws4
-set $i3l autosplit to workspace $ws5
-set $i3l autosplit to workspace $ws6
-set $i3l autosplit to workspace $ws7
-set $i3l autosplit to workspace $ws8
-set $i3l autosplit to workspace $ws9
-set $i3l autosplit to workspace $ws10
-
 # resize window (you can also use the mouse for that)
 # mode "resize" {
 #         # These bindings trigger as soon as you enter the resize mode
@@ -227,4 +221,4 @@ smart_gaps on
 #         status_command i3status
 # }
 
-exec --no-startup-id i3-layouts
+exec_always --no-startup-id autotiling-rs
