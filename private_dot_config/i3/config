@@ -215,6 +215,8 @@ gaps inner 10
 smart_gaps on
 
 
+for_window [title="^Android Emulator*"] floating enable
+
 # bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -222,7 +224,5 @@ smart_gaps on
 # bar {
 #         status_command i3status
 # }
-
-exec_always --no-startup-id autotiling-rs
 
 exec --no-startup-id light -S 60
