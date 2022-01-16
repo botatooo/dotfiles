@@ -41,7 +41,7 @@ zinit for \
         romkatv/powerlevel10k
 
 zinit lucid wait for \
-        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay; if (( $+commands[tea] )); then; PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source $HOME/.config/tea/autocomplete.zsh; fi;" \
                 zdharma-continuum/fast-syntax-highlighting \
         blockf \
                 zsh-users/zsh-completions \
@@ -50,6 +50,8 @@ zinit lucid wait for \
         lukechilds/zsh-nvm \
         https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
 
-export PATH=$PATH:$(yarn global bin):$HOME/scripts
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
