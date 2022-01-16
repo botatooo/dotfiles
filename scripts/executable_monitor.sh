@@ -1,5 +1,9 @@
 #!/bin/sh
-case ${MONS_NUMBER} in
+i=0
+for status in /sys/class/drm/*/status; do
+    [ "$(<"$status")" = 'connected' ] && i=$((i+1))
+done
+case ${i} in
     1)
         mons -o
         ;;
