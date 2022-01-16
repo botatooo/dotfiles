@@ -49,7 +49,7 @@ exec --no-startup-id blueman-applet
 
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id copyq
-exec --no-startup-id sh -c "xrandr-watcher $HOME/scripts/monitor.sh"
+exec --no-startup-id sh -c "mons -a -x $HOME/scripts/monitor.sh"
 exec --no-startup-id flameshot
 
 exec_always --no-startup-id ~/scripts/bar
