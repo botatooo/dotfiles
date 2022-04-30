@@ -10,4 +10,4 @@ else
 mons -o
 fi
 
-feh --bg-scale /usr/share/wallpapers/MilkyWay/contents/images/5120x2880.png
+feh --bg-scale ~/wallpapers/nikocropnoartifacts.png ~/wallpapers/MilkyWay.png

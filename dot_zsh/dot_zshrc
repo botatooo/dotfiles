@@ -6,11 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zsh why
+[ -r "$ZDOTDIR/env" ] && source $ZDOTDIR/env
+[ -r "$ZDOTDIR/env.private" ] && source $ZDOTDIR/env.private
 [ -r "$ZDOTDIR/aliases" ] && source $ZDOTDIR/aliases
+[ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private
 
 [ -r "/etc/profile" ] && source /etc/profile
-
-export GPG_TTY=$(tty)
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zsh/.zinit/bin/zinit.zsh ]]; then
@@ -49,8 +50,8 @@ zinit lucid wait for \
                 zsh-users/zsh-completions \
         atload"!_zsh_autosuggest_start" \
                 zsh-users/zsh-autosuggestions \
-        lukechilds/zsh-nvm \
-        https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
+        lukechilds/zsh-nvm
+#        https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
 
 
 export PATH="$HOME/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

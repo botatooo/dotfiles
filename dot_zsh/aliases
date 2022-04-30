@@ -1,6 +1,10 @@
 alias ls="ls --color"
 
-alias update-initramfs="sudo mkinitcpio -p linux"
+alias update-initramfs="doas genkernel --install --kernel-config=/boot/config-$(uname -r) initramfs"
+
+alias update-grub="doas grub-mkconfig -o /boot/grub/grub.cfg"
+
+alias esearch="eix --remote"
 
 #alias yay='/usr/bin/yay --pacman powerpill'
 
