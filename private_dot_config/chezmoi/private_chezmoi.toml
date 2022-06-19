@@ -1,0 +1,10 @@
+[git]
+    autoCommit = true
+    autoPush = true
+
+[data]
+    email = "botatostuff@gmail.com"
+
+[diff]
+    format = "git"
+    pager = "delta"
