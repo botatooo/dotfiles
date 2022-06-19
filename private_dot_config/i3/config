@@ -26,14 +26,15 @@ font pango:monospace 10
 
 
 exec_always --no-startup-id feh --bg-fill ~/wallpapers/nikocropnoartifacts.png ~/wallpapers/MilkyWay.png
+#exec_always --no-startup-id feh --bg-fill ~/wallpapers/MilkyWay.png
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-#exec --no-startup-id pipewire
+# exec --no-startup-id pipewire
 
-exec_always --no-startup-id $XDG_CONFIG_HOME/i3/i3-alternating-layout/alternating_layouts.py
+exec_always --no-startup-id ~/.config/i3/i3-alternating-layout/alternating_layouts.py
 
 exec --no-startup-id unclutter -idle 10
 

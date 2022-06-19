@@ -20,7 +20,6 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 export VITASDK=$HOME/sdks/vitasdk
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
 
-
 function emulator { ( cd ~/.androidsdk/emulator && ./emulator "$@"; ) }
 
 setopt appendhistory

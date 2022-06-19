@@ -1,8 +1,10 @@
 alias ls="ls --color"
 
-alias update-initramfs="doas genkernel --install --kernel-config=/boot/config-$(uname -r) initramfs"
+#alias update-initramfs="sudo genkernel --install --kernel-config=/boot/config-$(uname -r) initramfs"
 
-alias update-grub="doas grub-mkconfig -o /boot/grub/grub.cfg"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+alias update-mirrors="reflector -f 200 -c \"United States\" --delay 0.25 | sudo tee /etc/pacman.d/mirrorlist"
 
 alias esearch="eix --remote"
 

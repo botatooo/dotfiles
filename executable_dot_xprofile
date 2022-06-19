@@ -1,4 +1,3 @@
-#!/bin/sh
-#pipewire &
-# remove when new laptop
-#xrandr-watcher $HOME/.xrandr-changed &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+export QT_QPA_PLATFORMTHEME=qt5ct
