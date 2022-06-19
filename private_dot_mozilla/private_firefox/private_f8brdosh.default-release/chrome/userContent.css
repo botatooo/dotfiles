@@ -1,8 +1,0 @@
-/* TODO this doesnt work!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-@-moz-document url-prefix("chrome://devtools/content/styleeditor/index.xhtml") {
-    .splitview-nav label[value="userChrome.css"],
-    .splitview-nav label[value="userContent.css"] {
-      background-color: red !important;
-      color: white !important;
-    }
-  }

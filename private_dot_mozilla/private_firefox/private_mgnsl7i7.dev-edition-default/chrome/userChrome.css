@@ -9,9 +9,9 @@
 
 /* Tab bar */
 :root {
-    --tab-border-radius: 50px !important;
     --tabs-border-color: transparent !important;
 }
+
 #navigator-toolbox {
     border: 0px !important;
 }
@@ -38,9 +38,9 @@
     display: none !important;
 }
 */
-/*#tracking-protection-icon-container {
+#tracking-protection-icon-container {
     display: none !important;
-}*/
+}
 
 #urlbar-container {
     min-width: 0px !important;
@@ -55,6 +55,7 @@
     position: absolute !important;
     z-index: 999999 !important;
 }
+
 #urlbar-background, #searchbar {
     border: 0px none !important;
 }

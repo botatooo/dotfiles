@@ -1,11 +1,3 @@
-user_pref("browser.startup.page", 1);
-user_pref("browser.startup.homepage", "about:home");
-user_pref("browser.newtabpage.enabled", true);
-user_pref("browser.newtab.preload", true);
-user_pref("geo.provider.use_gpsd", true); // [LINUX]
-user_pref("extensions.webcompat-reporter.enabled", true); // [DEFAULT: false]
-user_pref("network.dns.disableIPv6", false);
-user_pref("keyword.enabled", true);
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.autoFill", true);
 user_pref("browser.urlbar.suggest.history", true);
