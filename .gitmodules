@@ -1,4 +1,0 @@
-[submodule "/home/botato/.local/share/chezmoi/private_dot_config/spicetify/CustomApps/marketplace"]
-	path = /home/botato/.local/share/chezmoi/private_dot_config/spicetify/CustomApps/marketplace
-	url = https://github.com/spicetify/spicetify-marketplace/
-	branch = dist
