@@ -85,9 +85,10 @@ bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym $alt+q exec --no-startup-id "firefox"
+bindsym $alt+q exec --no-startup-id "firefox-developer-edition"
 bindsym $alt+Shift+q exec --no-startup-id "chromium"
-bindsym $alt+d exec --no-startup-id "discord"
+bindsym $alt+d exec --no-startup-id "discord-canary"
+bindsym $alt+s exec --no-startup-id "spotify"
 bindsym $alt+c exec --no-startup-id "codium"
 bindsym $alt+e exec --no-startup-id "element-desktop"
 bindsym $alt+x exec --no-startup-id "dolphin"
@@ -226,6 +227,7 @@ smart_gaps on
 
 
 for_window [title="^Android Emulator*"] floating enable
+for_window [class="zenity"] floating enable
 
 # bindsym $mod+r mode "resize"
 
