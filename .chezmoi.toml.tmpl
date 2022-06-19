@@ -1,9 +1,11 @@
+{{ $email := promptString "git email" -}}
 [git]
     autoCommit = true
     autoPush = true
 
 [data]
-    email = "aa@protonmail.com"
+    email = {{ $email | quote }}
+
 
 [diff]
     format = "git"
