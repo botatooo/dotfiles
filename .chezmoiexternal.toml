@@ -1,0 +1,6 @@
+[".config/spicetify/CustomApps/marketplace"]
+    type = "archive"
+    url = "https://github.com/spicetify/spicetify-marketplace/archive/dist.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
