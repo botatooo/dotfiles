@@ -1,7 +1,32 @@
 #!/usr/bin/env bash
+
+# Provide 6 alphanumerical characters randomly (example: VYe11Y)
 RAND=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
-unbuffer $HOME/.local/bin/b2 upload-file AAGaming-Public $1 "ss/${RAND}.${1##*.}" | unbuffer -p sed -nr 's/.*( |^)([0-9]+)%.*/\2/p' | zenity --progress --text="Uploading..." --auto-close
-/usr/bin/copyq copy "https://img.bigdumb.gq/ss/${RAND}.${1##*.}" > /dev/null
-notify-send -t 5000 -u low "Done, link is https://img.bigdumb.gq/ss/${RAND}.${1##*.}" > /dev/null
-echo "https://img.bigdumb.gq/ss/${RAND}.${1##*.}"
-echo "https://fakedeleteurl.yes"
+# Get date path (format: YYYY/MM/DD)
+DATE=$(date +%Y/%m/%d)
+
+OUT_PATH="Flameshot/${DATE}/${RAND}.${1##*.}"
+OUT_URL="https://cdn.botato.gq/${OUT_PATH}"
+
+# Check if not provided or if not valid path
+if [ -z "$1" ] || [ ! -f $1 ]
+then
+    echo "No image path supplied"
+    exit 1
+fi
+
+# Setup b2 authentication before doing this
+# Upload image $1 to backblaze bucket botato-img-host with an upload bar
+unbuffer b2 upload-file botato-img-host $1 "$OUT_PATH" | unbuffer -p sed -nr 's/.*( |^)([0-9]+)%.*/\2/p' | zenity --progress --text="Uploading file..." --auto-close
+# Send a notification when completed
+notify-send -i org.flameshot.Flameshot -a flameshot -t 5000 -u low "Upload completed" "Link to the file is ${OUT_URL}" > /dev/null
+
+# Check if $2 doesn't exist or if it's not --no-copy
+if [ -z "$2" ] || [ '--no-copy' != $2 ]
+then
+    # Copy upload url
+    copyq copy "$OUT_URL" > /dev/null
+fi
+
+# Provide upload url to Flameshot
+echo "$OUT_URL"

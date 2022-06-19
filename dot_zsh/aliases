@@ -10,7 +10,7 @@ alias esearch="eix --remote"
 
 #alias yay='/usr/bin/yay --pacman powerpill'
 
-alias updatemirrors='sudo reflector --country United\ States -l 200 --sort rate --save /etc/pacman.d/mirrorlist-arch'
+alias updatemirrors='sudo reflector --country Canada -l 200 --sort rate --save /etc/pacman.d/mirrorlist-arch'
 
 alias ssh='TERM=xterm ssh'
 

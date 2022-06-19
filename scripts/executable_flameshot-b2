@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+
 set -e
 cat > /tmp/image.png
-$HOME/scripts/image-b2 /tmp/image.png
+
+$HOME/scripts/image-b2 /tmp/image.png --no-copy
+# Script already provides regular url, provide fake deletion url
+echo "https://fakedeleteurl.yes"
+
+rm /tmp/image.png

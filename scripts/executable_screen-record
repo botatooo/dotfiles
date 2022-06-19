@@ -8,6 +8,7 @@ sleep 2
 declare -r _confdir=${__o[config-dir]:-$SSR_CONFIG_DIR}
 declare -r _ssrcnf="$_confdir"/settings.conf
 declare -r _ssrsts="$_confdir"/stats
+
 getoutputpath() {
 
   # in config (_ssrcnf) get directory
