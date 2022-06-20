@@ -227,7 +227,12 @@ smart_gaps on
 
 
 for_window [title="^Android Emulator*"] floating enable
+<<<<<<< HEAD
 for_window [class="(?i)Zenity"] floating enable
+=======
+for_window [class="zenity"] floating enable
+for_window [class="flameshot"] floating enable
+>>>>>>> df53257 (configs & fix gpg)
 
 # bindsym $mod+r mode "resize"
 
