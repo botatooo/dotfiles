@@ -126,10 +126,8 @@ function delete-char {
 }
 zle -N delete-char
 
-bindkey ';6D' select-word-left ## not working yet                                                                                                                                                                                                                               
-bindkey ';6C' select-word-right ## not working yet                                                                                                                                                                                                                              
-bindkey ';2D' select-char-left   # assuming xterm                                                                                                                                                                                                                               
-bindkey ';2C' select-char-right  # assuming xterm                                                                                                                                                                                                                               
+bindkey ';2D' select-char-left   # assuming xterm
+bindkey ';2C' select-char-right  # assuming xterm
 bindkey ';5D' backward-word
 bindkey ';5C' forward-word
 bindkey '^[[3~' delete-char

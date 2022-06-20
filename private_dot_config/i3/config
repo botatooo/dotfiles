@@ -53,7 +53,7 @@ exec --no-startup-id unclutter -idle 10
 exec --no-startup-id picom --experimental-backends
 #exec --no-startup-id copyq
 #exec --no-startup-id sh -c "mons -a -x $HOME/scripts/monitor.sh"
-#exec --no-startup-id flameshot
+exec --no-startup-id flameshot
 
 exec --no-startup-id echo "$0: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"
 exec --no-startup-id dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"
@@ -227,7 +227,7 @@ smart_gaps on
 
 
 for_window [title="^Android Emulator*"] floating enable
-for_window [class="(?i)Zenity"] floating enable
+for_window [class="zenity"] floating enable
 for_window [class="flameshot"] floating enable
 
 # bindsym $mod+r mode "resize"
