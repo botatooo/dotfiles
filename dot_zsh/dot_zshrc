@@ -64,10 +64,8 @@ alias cpu-max='tuned-adm profile latency-performance'
 alias cpu-balanced='tuned-adm profile balanced'
 alias cpu-min='tuned-adm profile laptop-battery-powersave'
 
-
 # gpg is an idiot i swear
 export GPG_TTY=$(tty)
-
 
 # I love you, dear stranger at https://stackoverflow.com/a/24939351
 function zle-line-init {
