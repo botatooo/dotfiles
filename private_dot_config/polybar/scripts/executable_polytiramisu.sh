@@ -8,8 +8,7 @@ display_duration=20.0
 char_limit=150
 
 # Replace app names with nerd font logos
-use_nerd_font="false"
-
+use_nerd_font="true"
 
 # Stop old tiramisu processes if any:
 pgrep -x tiramisu >/dev/null && killall tiramisu
@@ -36,11 +35,12 @@ tiramisu -o '#summary #body' |
         # Replace app names with icons
         if [ $use_nerd_font == "true" ]; then
             line="$(echo "$line" | sed -r 's/Telegram Desktop//')"
-            line="$(echo "$line" | sed -r 's/NordVPN//')"
+            line="$(echo "$line" | sed -r 's/Bitwarden/ /')"
             line="$(echo "$line" | sed -r 's/VLC//')"
-            line="$(echo "$line" | sed -r 's/Kdenlive//')"
+            line="$(echo "$line" | sed -r 's/Kdenlive/ /')"
             line="$(echo "$line" | sed -r 's/Wifi//')"
             line="$(echo "$line" | sed -r 's/Firefox//')"
+            line="$(echo "$line" | sed -r 's/Discord/ﭮ /')"
         fi
 
         # Cut notification by character limit:
