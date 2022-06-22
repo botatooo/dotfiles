@@ -2,4 +2,4 @@
 
 polybar-msg cmd quit || true
 
-polybar aa
+polybar main

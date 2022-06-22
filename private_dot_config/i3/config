@@ -65,8 +65,13 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Use light to adjust the screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+
+# Calculator using menu-qalc
+bindsym XF86Calculator exec --no-startup-id =
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -95,6 +100,7 @@ bindsym $alt+x exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "kitty"
 
 bindsym Print exec --no-startup-id "flameshot gui"
+bindsym KP_Insert exec --no-startup-id "xcolor -s -f hex!"
 
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
 
