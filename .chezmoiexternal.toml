@@ -4,3 +4,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".config/spicetify/Themes/Nordify"]
+    type = "archive"
+    url = "https://github.com/Tuuuukka/Nordify/archive/master.tar.gz"
+    exact = true
+    refreshPeriod = "168h"
