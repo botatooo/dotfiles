@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for card in `find /sys/class/backlight/ -type l`; do
+        cp "/sys/class/backlight/`basename $card`/brightness" "/var/cache/backlight/`basename $card`-brightness-old"
+done

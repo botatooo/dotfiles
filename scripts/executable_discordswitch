@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+discord-focus () 
+{
+  wmctrl -xa Discord
+  sleep 0.05
+  xdotool key ctrl+k
+  xdotool type --args 1 "$1" sleep 0.50 key Return
+}
+discord-focus $1
