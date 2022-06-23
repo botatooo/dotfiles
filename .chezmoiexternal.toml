@@ -9,4 +9,5 @@
     type = "archive"
     url = "https://github.com/Tuuuukka/Nordify/archive/master.tar.gz"
     exact = true
+    stripComponents = 1
     refreshPeriod = "168h"
