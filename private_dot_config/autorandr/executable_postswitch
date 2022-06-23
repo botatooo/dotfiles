@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case $AUTORANDR_CURRENT_PROFILE in
+    "laptop")
+        notify-send -i display "HDMI cable unplugged!"
+        ;;
+    "dual")
+        notify-send -i display "HDMI cable plugged in!"
+        ;;
+esac
