@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Terminate already running bar instances
+# If all your bars have ipc enabled, you can use 
 polybar-msg cmd quit || true
+# Otherwise you can use the nuclear option:
+# killall -q polybar
 
-polybar main
+# Launch bars top and bottom
+polybar top
+polybar bottom

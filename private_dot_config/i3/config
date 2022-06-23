@@ -100,9 +100,11 @@ bindsym $alt+x exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "kitty"
 
 bindsym Print exec --no-startup-id "flameshot gui"
-bindsym KP_Insert exec --no-startup-id "xcolor -s -f hex!"
+bindsym Insert exec --no-startup-id "xcolor"
 
+#bindsym $mod+l exec --no-startup-id "loginctl lock-session ${XDG_SESSION_ID-}"
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
+bindsym $mod+. exec --no-startup-id "rofimoji"
 
 # change focus
 # bindsym $mod+j focus left
