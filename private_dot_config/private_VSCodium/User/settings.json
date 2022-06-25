@@ -1,7 +1,6 @@
 {
+    "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
-    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', 'Noto Sans Mono', 'Material Icons', monospace",
-    "python.languageServer": "Pylance",
-    "workbench.colorTheme": "Nord"
+    "editor.fontFamily": "'Material Design Icons', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
+    "python.languageServer": "Pylance"
 }
