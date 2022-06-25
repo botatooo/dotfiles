@@ -4,11 +4,9 @@
 
 ## Installation
 
-```bash
-
+```sh
 $ sh -c "$(curl -fsLS chezmoi.io/get)"
 $ chezmoi init --apply https://git.catvibers.me/botato/dotfiles
 $ chezmoi git -- submodule init
 $ chezmoi git -- submodule update
-
 ```
