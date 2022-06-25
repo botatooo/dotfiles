@@ -1,6 +1,10 @@
 [".config/spicetify/CustomApps/marketplace"]
     type = "archive"
     url = "https://github.com/spicetify/spicetify-marketplace/archive/dist.tar.gz"
-    exact = true
     stripComponents = 1
+    refreshPeriod = "168h"
+
+[".mozilla/firefox/goe7zjsq.DefaultUser/chrome/firefox-nordic-theme"]
+    type = "git-repo"
+    url = "https://github.com/EliverLara/firefox-nordic-theme.git"
     refreshPeriod = "168h"
