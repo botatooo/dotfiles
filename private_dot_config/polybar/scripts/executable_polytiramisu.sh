@@ -24,7 +24,8 @@ resetloop()
 
 changetext()
 {
-    echo " $line" # bubble icon in front
+    # bubble icon in front
+    echo " $line" | awk -v len=30 '{ if (length($0) > len) print substr($0, 1, len-3) "..."; else print; }'
     sleep "$display_duration"
 }
 
