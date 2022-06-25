@@ -1,7 +1,7 @@
 @theme "nord"
 
 configuration {
-/*	modi: "window,run,ssh";*/
+	modi: "window,run,drun,emoji,calc";
 	font: "JetBrainsMono Nerd Font 13";
 /*	location: 0;*/
 /*	yoffset: 0;*/
