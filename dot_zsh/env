@@ -19,6 +19,7 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 
 export VITASDK=$HOME/sdks/vitasdk
 export PATH=$VITASDK/bin:$PATH # add vitasdk tool to $PATH
+export GTK_USE_PORTAL=1
 
 function emulator { ( cd ~/.androidsdk/emulator && ./emulator "$@"; ) }
 

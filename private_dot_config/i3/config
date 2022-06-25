@@ -51,14 +51,14 @@ exec --no-startup-id unclutter -idle 10
 #exec --no-startup-id blueman-applet
 
 exec --no-startup-id picom --experimental-backends
-#exec --no-startup-id copyq
-#exec --no-startup-id sh -c "mons -a -x $HOME/scripts/monitor.sh"
+exec --no-startup-id copyq
+exec --no-startup-id sh -c "mons -a -x $HOME/scripts/monitor.sh"
 exec --no-startup-id flameshot
 
 exec --no-startup-id echo "$0: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"
 exec --no-startup-id dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"
 
-exec_always --no-startup-id sleep 2 && ~/scripts/bar
+exec_always --no-startup-id ~/scripts/bar
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -90,7 +90,7 @@ bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym $alt+q exec --no-startup-id "firefox-developer-edition"
+bindsym $alt+q exec --no-startup-id "firefox"
 bindsym $alt+Shift+q exec --no-startup-id "chromium"
 bindsym $alt+d exec --no-startup-id "discord-canary"
 bindsym $alt+s exec --no-startup-id "spotify"
@@ -100,11 +100,11 @@ bindsym $alt+x exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "kitty"
 
 bindsym Print exec --no-startup-id "flameshot gui"
-bindsym Insert exec --no-startup-id "xcolor"
+#bindsym KP_Inspect exec --no-startup-id "xcolor -s"
 
 #bindsym $mod+l exec --no-startup-id "loginctl lock-session ${XDG_SESSION_ID-}"
 bindsym $mod+l exec --no-startup-id "~/scripts/lock"
-bindsym $mod+. exec --no-startup-id "rofimoji"
+#bindsym $mod+. exec --no-startup-id "rofimoji"
 
 # change focus
 # bindsym $mod+j focus left

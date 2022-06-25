@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-ssrt --select --container webm --codec vp8 -m
+ssrt --select --container webm --codec vp8 --mute
 sleep 2
 # environment variables
 : "${SSR_CONFIG_DIR:=$HOME/.ssr}"
