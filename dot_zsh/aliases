@@ -1,5 +1,5 @@
 #alias ls="ls --color"
-alias ls="exa"
+alias ls="exa -abhl --git"
 
 #alias update-initramfs="sudo genkernel --install --kernel-config=/boot/config-$(uname -r) initramfs"
 
