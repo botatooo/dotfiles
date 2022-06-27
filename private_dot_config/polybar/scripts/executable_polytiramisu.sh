@@ -25,23 +25,30 @@ resetloop()
 changetext()
 {
     # bubble icon in front
-    echo " $line" | awk -v len=30 '{ if (length($0) > len) print substr($0, 1, len-3) "..."; else print; }'
+    echo " $line"
     sleep "$display_duration"
 }
 
 # Start a new tiramisu process:
-tiramisu -o '#summary #body' |
+tiramisu -o '#source %{F#88c0d0}#summary%{F-} #body' |
     while read -r line; do
-        
+                
         # Replace app names with icons
         if [ $use_nerd_font == "true" ]; then
-            line="$(echo "$line" | sed -r 's/Telegram Desktop/ /')"
-            line="$(echo "$line" | sed -r 's/Bitwarden/ /')"
-            line="$(echo "$line" | sed -r 's/VLC//')"
-            line="$(echo "$line" | sed -r 's/Kdenlive/ /')"
-            line="$(echo "$line" | sed -r 's/Wifi/ /')"
-            line="$(echo "$line" | sed -r 's/Firefox//')"
-            line="$(echo "$line" | sed -r 's/Discord/ﭮ /')"
+            line="$(echo "$line" | sed -r 's/Telegram Desktop/ /I')"
+            line="$(echo "$line" | sed -r 's/Bitwarden/ /I')"
+            line="$(echo "$line" | sed -r 's/VLC/嗢 /I')"
+            line="$(echo "$line" | sed -r 's/Kdenlive/ /I')"
+            line="$(echo "$line" | sed -r 's/Wifi/ /I')"
+            line="$(echo "$line" | sed -r 's/Firefox/ /I')"
+            line="$(echo "$line" | sed -r 's/KDE Connect/ /I')"
+            line="$(echo "$line" | sed -r 's/Snapchat/例 /I')"
+            line="$(echo "$line" | sed -r 's/Instagram/ /I')"
+            line="$(echo "$line" | sed -r 's/Twitter/ /I')"
+            line="$(echo "$line" | sed -r 's/Youtube/ /I')"
+            line="$(echo "$line" | sed -r 's/Youtube Vanced/ /I')"
+            line="$(echo "$line" | sed -r 's/discord/ﭮ /I')"
+            line="$(echo "$line" | sed -r 's/notify-send/ /I')"
         fi
 
         # Cut notification by character limit:

@@ -72,8 +72,8 @@ font-3 = -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1:size=11;1
 font-4 = Noto Sans CJK JP:size=10;1
 
 modules-left = i3 polytiramisu
-modules-center =
-modules-right = xwindow date powermenu
+modules-center = xwindow
+modules-right = date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -93,14 +93,9 @@ inherit = bar/top
 bottom = true
 tray-position = right
 padding-left = 2
-font-0 = JetBrainsMono Nerd Font:size=11;3
-font-1 = unifont:size=11:fontformat=truetype:antialias=false;3
-font-2 = Material Design Icons:size=12;3
-font-3 = -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1:size=11;3
-font-4 = Noto Sans CJK JP:size=10;3
 modules-left = mpris mpris-prev mpris-play-pause mpris-next
-modules-center = filesystem screen kbd-backlight pulseaudio battery memory cpu ;temperature
-modules-right = wlan ipaddr
+modules-center = filesystem screen kbd-backlight pulseaudio battery memory cpu wlan ipaddr ;temperature
+modules-right =
 
 
 
@@ -219,7 +214,7 @@ label-urgent-padding = ${self.label-focused-padding}
 type = custom/text
 content = 
 content-foreground = ${colors.secondary}
-click-left = rofi -show p -modi p:rofi-power-menu -font 'JetBrainsMono Nerd Font 15' -width 20 -lines 6
+click-left = "rofi -show p -modi p:rofi-power-menu -font 'JetBrainsMono Nerd Font 16' -width 20 -lines 6"
 
 
 [module/mpris]
@@ -261,10 +256,11 @@ tail = true
 
 
 [module/xwindow]
-type = custom/script
-exec = ~/.config/polybar/scripts/betterxwindow.sh
-format = <label>
-tail = true
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 50
+label-ellipsis = true
 
 
 [module/filesystem]
@@ -338,22 +334,20 @@ format-prefix-foreground = ${colors.primary}
 [module/wlan]
 type = internal/network
 interval = 1
-click-left = nmtui
 interface-type = wireless
 interface = wlp0s20f3
 
 format-disconnected = <label-disconnected>
-label-disconnected = %essid%
-label-disconnected-prefix = 󰤮" "
-label-disconnected-prefix-foreground = ${colors.disabled}
+label-disconnected = disconnected
 
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 
-ramp-signal-0 = 󰤟
-ramp-signal-1 = 󰤢
-ramp-signal-2 = 󰤥
-ramp-signal-3 = 󰤨
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
 ramp-signal-foreground = ${colors.primary}
 
 [module/ipaddr]
@@ -361,15 +355,14 @@ type = custom/script
 tail = true
 interval = 1
 format = <label>
-exec = ip -json route | jq '.[0].prefsrc' | sed 's/"//g' | awk '{print "%{F#88c0d0}󰩟%{F-}",$0}'
+exec = ip -json route | jq -r '.[0].prefsrc' | awk '{print "%{F#88c0d0}󰩟%{F-}",$0}'
 
 [module/date]
 type = internal/date
 interval = 1
 
 date = %H:%M:%S
-date-alt = %a, %B %d | %d-%m-%Y
-
+date-alt = %Y-%m-%d
 
 label = %date%
 label-foreground = ${colors.primary}
@@ -380,4 +373,3 @@ screenchange-reload = true
 pseudo-transparency = false
 
 ; vim:ft=dosini
-
