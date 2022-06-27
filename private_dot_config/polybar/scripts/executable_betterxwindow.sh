@@ -3,7 +3,7 @@
 # Heavily inspired by polytiramisu by anufrievroman
 
 # Maximum number of characters:
-char_limit=150
+char_limit=90
 
 # Replace app names with nerd font logos
 use_nerd_font="true"
@@ -16,11 +16,13 @@ title="$(xprop -id $focused WM_NAME | awk -F'"' '{split($0,array); print array[2
 
 # Replace app names with icons
 if [ $use_nerd_font == "true" ]; then
-    if [ "${#title}" -gt "$((char_limit-3))" ]; then
-        title="$(echo "$title" | cut -c1-$((char_limit-1)))…"
-    fi
-
     source="$(xdotool getwindowclassname $focused)"
+
+    case "$source" in
+        "discord") title="$(echo "$title" | sed -r 's/ - Discord.*//')" ;;
+        "firefox") title="$(echo "$title" | sed -r 's/ — Mozilla Firefox//')" ;;
+        "Chromium") title="$(echo "$title" | sed -r 's/ - Chromium//')" ;;
+    esac
 
     source="$(echo "$source" | sed -r 's/Telegram Desktop/ /I')"
     source="$(echo "$source" | sed -r 's/Blueberry.py/ /I')"
@@ -59,6 +61,10 @@ if [ $use_nerd_font == "true" ]; then
     source="$(echo "$source" | sed -r 's/libreoffice-.*/ /I')"
     source="$(echo "$source" | sed -r 's/Gimp-.*/ /I')"
     source="$(echo "$source" | sed -r 's/.*setting.*/ /I')"
+
+    if [ "${#title}" -gt "$((char_limit-3))" ]; then
+        title="$(echo "$title" | cut -c1-$((char_limit-1)))…"
+    fi
 
     echo "%{F#88c0d0}$source%{F-} $title"
 else
