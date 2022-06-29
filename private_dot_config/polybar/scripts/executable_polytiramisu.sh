@@ -32,23 +32,29 @@ changetext()
 # Start a new tiramisu process:
 tiramisu -o '#source %{F#88c0d0}#summary%{F-} #body' |
     while read -r line; do
-                
+
+        line="$(echo "$line" | sed -r '')"
+
         # Replace app names with icons
         if [ $use_nerd_font == "true" ]; then
-            line="$(echo "$line" | sed -r 's/Telegram Desktop/ /I')"
-            line="$(echo "$line" | sed -r 's/Bitwarden/ /I')"
-            line="$(echo "$line" | sed -r 's/VLC/嗢 /I')"
-            line="$(echo "$line" | sed -r 's/Kdenlive/ /I')"
-            line="$(echo "$line" | sed -r 's/Wifi/ /I')"
+            line="$(echo "$line" | sed -r 's/Telegram Desktop//I')"
+            line="$(echo "$line" | sed -r 's/Telegram//I')"
+            line="$(echo "$line" | sed -r 's/Bitwarden//I')"
+            line="$(echo "$line" | sed -r 's/VLC/嗢/I')"
+            line="$(echo "$line" | sed -r 's/Kdenlive//I')"
+            line="$(echo "$line" | sed -r 's/Wifi//I')"
             line="$(echo "$line" | sed -r 's/Firefox/ /I')"
-            line="$(echo "$line" | sed -r 's/KDE Connect/ /I')"
-            line="$(echo "$line" | sed -r 's/Snapchat/例 /I')"
-            line="$(echo "$line" | sed -r 's/Instagram/ /I')"
-            line="$(echo "$line" | sed -r 's/Twitter/ /I')"
-            line="$(echo "$line" | sed -r 's/Youtube/ /I')"
-            line="$(echo "$line" | sed -r 's/Youtube Vanced/ /I')"
-            line="$(echo "$line" | sed -r 's/discord/ﭮ /I')"
-            line="$(echo "$line" | sed -r 's/notify-send/ /I')"
+            line="$(echo "$line" | sed -r 's/KDE Connect//I')"
+            line="$(echo "$line" | sed -r 's/Snapchat/例/I')"
+            line="$(echo "$line" | sed -r 's/Instagram//I')"
+            line="$(echo "$line" | sed -r 's/Twitter//I')"
+            line="$(echo "$line" | sed -r 's/Youtube Vanced//I')"
+            line="$(echo "$line" | sed -r 's/Youtube//I')"
+            line="$(echo "$line" | sed -r 's/discord/ﭮ/I')"
+            line="$(echo "$line" | sed -r 's/Droid-ify//I')"
+            line="$(echo "$line" | sed -r 's/FFUpdater/  /I')"
+            line="$(echo "$line" | sed -r 's/LinkedIn//I')"
+            line="$(echo "$line" | sed -r 's/notify-send//I')"
         fi
 
         # Cut notification by character limit:

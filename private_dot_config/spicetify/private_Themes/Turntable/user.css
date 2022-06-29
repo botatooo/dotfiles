@@ -993,20 +993,6 @@ input {
     display: none !important;
 }
 
-[aria-label='Friend Activity'] {
-    transition: width 0.3s;
-}
-
-@media screen and (max-width: 1200px) {
-    [aria-label='Friend Activity'] {
-        width: 0;
-    }
-
-    [aria-label='Friend Activity'] .LayoutResizer__resize-bar {
-        display: none;
-    }
-}
-
 .main-rootlist-expandArrow {
     -webkit-transform: rotate(-90deg) !important;
     transform: rotate(-90deg) !important;
