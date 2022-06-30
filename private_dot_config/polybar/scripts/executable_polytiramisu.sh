@@ -54,6 +54,8 @@ tiramisu -o '#source %{F#88c0d0}#summary%{F-} #body' |
             line="$(echo "$line" | sed -r 's/Droid-ify//I')"
             line="$(echo "$line" | sed -r 's/FFUpdater/  /I')"
             line="$(echo "$line" | sed -r 's/LinkedIn//I')"
+            line="$(echo "$line" | sed -r 's/Proton Mail/P/I')"
+            line="$(echo "$line" | sed -r 's/Outlook/ /I')"
             line="$(echo "$line" | sed -r 's/notify-send//I')"
         fi
 
