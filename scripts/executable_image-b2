@@ -2,12 +2,14 @@
 import requests
 import string
 import random
+import time
 import os
 from argparse import ArgumentParser
 from datetime import datetime, timedelta
 
 import pyperclip
 from b2sdk import v2 as b2
+from PyQt5 import QtWidgets, QtGui, QtCore
 
 parser = ArgumentParser()
 parser.add_argument("image", help="path to image to upload")
@@ -45,20 +47,20 @@ animals = requests.get(
     "https://github.com/ShareX/ShareX/raw/develop/ShareX.HelpersLib/Resources/animals.txt"
 ).text.split("\n")
 
-if args.emojis:
-    with open('~/scripts/emojis.txt', 'r') as f:
-        emojis = f.read().split('\n')
-
 adjective = random.choice(adjectives).title()
 animal = random.choice(animals).title()
 
 if args.emojis:
+    with open('~/scripts/emojis.txt', 'r') as f:
+        emojis = f.read().split('\n')
+
     # 3 random emojis
-    rand = "".join(+[random.choice(emojis) for _ in range(3)])
+    rand = "".join([random.choice(emojis) for _ in range(3)])
 else:
+    alphanumerical = string.ascii_letters + string.digits
     # Provide 6 alphanumerical characters randomly (example: VYe11Y)
     rand = "".join(
-        random.choice(string.ascii_letters + string.digits) for _ in range(6)
+        random.choice(alphanumerical) for _ in range(6)
     )
 
 # Get date path (format: YYYY/MM/DD)
@@ -73,8 +75,25 @@ if args.timebomb:
     expires = now + timedelta(days=1)
     timestampInMs = int(expires.timestamp() * 1000)
 
+class ProgressBar(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
 
-bucket.upload_local_file(
+        self.progressbar = QtGui.QProgressBar(self)
+        self.progressbar.setGeometry(30, 40, 200, 25)
+
+        main_layout = QtGui.QGridLayout()
+        main_layout.addWidget(self.progressbar, 0, 0)
+
+        self.setLayout(main_layout)
+        self.setGeometry(300, 300, 280, 170)
+        self.setWindowTitle("Python")
+        self.show()
+
+    def update_progressbar(self, val):
+        self.progressbar.setValue(val)   
+
+print(bucket.upload_local_file(
     local_file=args.image,
     file_name=outPath,
     file_retention=b2.FileRetentionSetting(
@@ -82,7 +101,7 @@ bucket.upload_local_file(
     )
     if args.timebomb
     else None,
-)
+))
 
 if not args.no_copy:
     pyperclip.copy(outUrl)
