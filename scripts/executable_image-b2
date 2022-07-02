@@ -35,7 +35,7 @@ b2_api = b2.B2Api(info)
 b2_api.authorize_account(
     realm="production", application_key_id=os.getenv("B2_APPLICATION_KEY_ID"), application_key=os.getenv("B2_APPLICATION_KEY")
 )
-bucket = b2_api.get_bucket_by_name("botato-img-host")
+bucket = b2_api.get_bucket_by_name(os.getenv("B2_BUCKET_NAME"))
 
 
 

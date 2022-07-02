@@ -3,5 +3,8 @@
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "'Material Design Icons', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
     "python.languageServer": "Pylance",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
