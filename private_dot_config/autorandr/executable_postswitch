@@ -1,10 +1,18 @@
 #!/bin/sh
+last=
 
-case $AUTORANDR_CURRENT_PROFILE in
-    "laptop")
-        notify-send -i display "HDMI cable unplugged!"
-        ;;
-    "dual")
-        notify-send -i display "HDMI cable plugged in!"
-        ;;
-esac
+while true; do
+    connected="$(xrandr -q | grep ' connected' | grep 'HDMI' | wc -l)"
+    if ["$connected" != "$last"]; then
+        autorandr --change
+        xinput --map-to-output "CUST0000:00 04F3:2ADF" $(xrandr --prop | grep eDP | cut -f1 -d" ")
+        case $AUTORANDR_CURRENT_PROFILE in
+            "laptop")
+                notify-send -i display "HDMI cable unplugged!" ;;
+            "dual")
+                notify-send -i display "HDMI cable plugged in!" ;;
+        esac
+        last="$connected"
+    fi
+    sleep 1
+done
