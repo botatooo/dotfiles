@@ -1,19 +1,10 @@
-#alias ls="ls --color"
 alias ls="exa -abhl --git"
 
-#alias update-initramfs="sudo genkernel --install --kernel-config=/boot/config-$(uname -r) initramfs"
+alias updatemirrors='sudo reflector --save /etc/pacman.d/mirrorlist --protocol https --country Canada,Switzerland,Germany --latest 20 --sort age'
 
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
-alias esearch="eix --remote"
-
-#alias yay='/usr/bin/yay --pacman powerpill'
-
-alias updatemirrors='sudo reflector --country Canada -l 200 --sort rate --save /etc/pacman.d/mirrorlist'
+alias paru='/usr/bin/paru --pacman powerpill'
 
 alias ssh='TERM=xterm ssh'
-
-alias pakt='mosh pakt -- byobu'
 
 alias tb='nc termbin.com 9999'
 

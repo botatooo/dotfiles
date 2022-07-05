@@ -50,7 +50,7 @@ tiramisu -o '#source %{F#88c0d0}#summary%{F-} #body' |
             line="$(echo "$line" | sed -r 's/Twitter//')"
             line="$(echo "$line" | sed -r 's/YouTube Vanced//')"
             line="$(echo "$line" | sed -r 's/YouTube//')"
-            line="$(echo "$line" | sed -r 's/discord/ﭮ/')"
+            line="$(echo "$line" | sed -r 's/discord/ﭮ/I')"
             line="$(echo "$line" | sed -r 's/Droid-ify/ /')"
             line="$(echo "$line" | sed -r 's/FFUpdater/ /')"
             line="$(echo "$line" | sed -r 's/LinkedIn//')"
