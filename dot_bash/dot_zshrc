@@ -5,6 +5,40 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Load powerlevel10k
+zinit for \
+        romkatv/powerlevel10k
+
+zinit lucid wait for \
+        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay; if (( $+commands[tea] )); then; PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source $HOME/.config/tea/autocomplete.zsh; fi;" \
+                zdharma-continuum/fast-syntax-highlighting \
+        blockf \
+                zsh-users/zsh-completions \
+        atload"!_zsh_autosuggest_start" \
+                zsh-users/zsh-autosuggestions
+
+
+setopt NO_BEEP
+ 
+# AUTOCOMPLETIONW
+
+# initialize autocompletion
+autoload -U compinit
+compinit
+
+# history setup
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+HISTFILE=$HOME/.zhistory
+SAVEHIST=10000
+HISTSIZE=10000
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
+
+# autocompletion using arrow keys (based on history)
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
+
 # zsh why
 source $ZDOTDIR/env
 [ -r "$ZDOTDIR/env.private" ] && source $ZDOTDIR/env.private
@@ -12,6 +46,7 @@ source $ZDOTDIR/aliases
 [ -r "$ZDOTDIR/aliases.private" ] && source $ZDOTDIR/aliases.private
 
 [ -r "/etc/profile" ] && source /etc/profile
+
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zsh/.zinit/bin/zinit.zsh ]]; then
@@ -39,35 +74,19 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Load powerlevel10k
-zinit for \
-        romkatv/powerlevel10k
+export GPG_TTY=$(tty)
+export PNPM_HOME="/root/.local/share/pnpm"
 
-zinit lucid wait for \
-        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay; if (( $+commands[tea] )); then; PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source $HOME/.config/tea/autocomplete.zsh; fi;" \
-                zdharma-continuum/fast-syntax-highlighting \
-        blockf \
-                zsh-users/zsh-completions \
-        atload"!_zsh_autosuggest_start" \
-                zsh-users/zsh-autosuggestions
-#        lukechilds/zsh-nvm
-#        https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/ssh-agent/ssh-agent.plugin.zsh \
-
-
-export PATH="$HOME/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$HOME/.spicetify:$PATH"
+export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.spicetify:$PATH"
+export PATH="$PNPM_HOME:$PATH"
 
 
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 
-export PNPM_HOME="/root/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-alias cpu-max='tuned-adm profile latency-performance'
-alias cpu-balanced='tuned-adm profile balanced'
-alias cpu-min='tuned-adm profile laptop-battery-powersave'
-
-# gpg is an idiot i swear
-export GPG_TTY=$(tty)
 
 # I love you, dear stranger at https://stackoverflow.com/a/24939351
 function zle-line-init {

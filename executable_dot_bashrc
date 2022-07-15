@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+export BASHDOTDIR=$HOME/.bash
+
+pushd $BASHDOTDIR > /dev/null
+[ -f ".bashrc" ] && source ./.bashrc
+[ -f "env.private" ] && source ./env.private
+[ -f "app-env" ] && source ./app-env
+[ -f "env" ] && source ./env
+popd > /dev/null
+
+[ -f "/etc/profile.d/devkit-env.sh" ] && source /etc/profile.d/devkit-env.sh
+[ -f "$HOME/.nvm/nvm.sh" ] && source ~/.nvm/nvm.sh

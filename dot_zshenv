@@ -1,7 +1,0 @@
-#!/bin/env zsh
-export ZDOTDIR=$HOME/.zsh
-[ -r "$ZDOTDIR/env.private" ] && source $ZDOTDIR/env.private
-[ -r "$ZDOTDIR/app-env" ] && source $ZDOTDIR/app-env
-[ -r "$ZDOTDIR/env" ] && source $ZDOTDIR/env
-[ -r "/etc/profile.d/devkit-env.sh" ] && source /etc/profile.d/devkit-env.sh
-[ -r "$HOME/.nvm/nvm.sh" ] && source ~/.nvm/nvm.sh
