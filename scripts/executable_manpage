@@ -1,0 +1,7 @@
+#!/bin/sh
+
+command="$(man -k . | awk '{print $1}' | sort | rofi -dmenu -i -c -l 20 -p 'MAN PAGE:')"
+
+[[ -z "$command" ]] && exit 1;
+
+kitty --class=manpage -e zsh -c "source ~/.LESS_TERMCAP && man $command"

@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-while :; do tea notifications ls -m -o simple -l catvibers | xargs -i notify-send {}; sleep 300; done

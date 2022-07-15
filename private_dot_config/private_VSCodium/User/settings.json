@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Ayu Mirage",
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "'Material Design Icons', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
     "python.languageServer": "Pylance",
@@ -8,5 +8,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "git.autofetch": true
+    "git.autofetch": true,
+    "window.zoomLevel": 1
 }

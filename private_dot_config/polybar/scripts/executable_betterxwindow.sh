@@ -32,6 +32,7 @@ if [ $use_nerd_font == "true" ]; then
     source="$(echo "$source" | sed -r 's/kdeconnect.app//I')"
     source="$(echo "$source" | sed -r 's/discord/ﭮ/I')"
     source="$(echo "$source" | sed -r 's/kitty//I')"
+    source="$(echo "$source" | sed -r 's/Alacritty//I')"
     source="$(echo "$source" | sed -r 's/Pavucontrol/蓼/I')"
     source="$(echo "$source" | sed -r 's/Spotify/ /I')"
     source="$(echo "$source" | sed -r 's/Authy Desktop/󰦯 /I')"
@@ -58,6 +59,7 @@ if [ $use_nerd_font == "true" ]; then
     source="$(echo "$source" | sed -r 's/Mainwindow.py/調/I')" # PlayOnLinux
     source="$(echo "$source" | sed -r 's/VSCodium/󰨞/I')"
     source="$(echo "$source" | sed -r 's/XTerm//I')"
+    source="$(echo "$source" | sed -r 's/openrgb//I')"
     source="$(echo "$source" | sed -r 's/libreoffice-.*/ /I')"
     source="$(echo "$source" | sed -r 's/Gimp-.*/ /I')"
     source="$(echo "$source" | sed -r 's/.*setting.*/ /I')"
