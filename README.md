@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ sh -c "$(curl -fsLS chezmoi.io/get)"
+$ curl -fsLS chezmoi.io/get | sh
 $ chezmoi init --apply botatooo
 $ chezmoi git -- submodule init
 $ chezmoi git -- submodule update
