@@ -6,7 +6,7 @@
 
 ```sh
 $ sh -c "$(curl -fsLS chezmoi.io/get)"
-$ chezmoi init --apply https://git.catvibers.me/botato/dotfiles
+$ chezmoi init --apply botatooo
 $ chezmoi git -- submodule init
 $ chezmoi git -- submodule update
 ```
