@@ -1,0 +1,12 @@
+input_device: /dev/input/by-path/platform-INTC1051:00-event
+
+modes:
+  laptop:
+    - xrandr --output eDP1 --rotate normal
+    - xinput enable "AT Translated Set 2 keyboard"
+    - xinput enable "DLL0945:00 06CB:CE27 Touchpad"
+  tablet:
+    - xrandr --output eDP1 --rotate inverted
+    - xinput set-float-prop "CUST0000:00 04F3:2ADF" "Coordinate Transformation Matrix" -1 0 1 0 -1 1 0 0 1
+    - xinput disable "AT Translated Set 2 keyboard"
+    - xinput disable "DLL0945:00 06CB:CE27 Touchpad"
