@@ -12,21 +12,24 @@ fi
 
 url="https://cdn.botato.gq/"
 
-adjectives="$HOME/scripts/adjectives.txt"
-animals="$HOME/scripts/animals.txt"
-emojis="$HOME/scripts/emojis.txt"
+#adjectives="$HOME/scripts/adjectives.txt"
+#animals="$HOME/scripts/animals.txt"
+#emojis="$HOME/scripts/emojis.txt"
 
 # Get date path (format: YYYY/MM/DD)
-date=$(date +%Y/%m/%d)
+# date=$(date +%Y/%m/%d)
 
-adjective=$(capitalize_first_word $(shuf -n 1 "$adjectives"))
-animal=$(capitalize_first_word $(shuf -n 1 "$animals"))
+# adjective=$(capitalize_first_word $(shuf -n 1 "$adjectives"))
+# animal=$(capitalize_first_word $(shuf -n 1 "$animals"))
 
-emoji1=$(shuf -n 1 "$emojis")
-emoji2=$(shuf -n 1 "$emojis")
-emoji3=$(shuf -n 1 "$emojis")
+# emoji1=$(shuf -n 1 "$emojis")
+# emoji2=$(shuf -n 1 "$emojis")
+# emoji3=$(shuf -n 1 "$emojis")
 
-file="Flameshot/${date}/${adjective}${animal}_${emoji1}${emoji2}${emoji3}.${1##*.}"
+shtuff=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 10 | head -n 1)
+
+#file="Flameshot/${date}/${adjective}${animal}_${emoji1}${emoji2}${emoji3}.${1##*.}"
+file="i/${shtuff}.${1##*.}"
 
 a=$(b2 upload_file botato-img-host $1 "$file" --noProgress)
 

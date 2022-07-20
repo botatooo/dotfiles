@@ -1,19 +1,12 @@
 #!/bin/bash
 
-exit
-
-boot=$([[ "$1" == "boot" ]] && echo yes)
-
-# Touchscreen setup (dell touchscreen names suck)
 touchscreen="CUST0000:00 04F3:2ADF"
 
 xinput --map-to-output "$touchscreen" $(xrandr --prop | grep eDP | cut -f1 -d" ")
 
-npid=""
-
-nimg="display"
-nsum="HDMI connected"
-ndesc="Currently, two monitors are being detected: builtin and HDMI (eDP1 and HDMI1)"
+if [[ -z $MONS_NUMBER ]]; then
+  MONS_NUMBER=$(xrandr --query | grep " connected" | wc -l)
+fi
 
 case ${MONS_NUMBER} in
   1)
@@ -30,13 +23,8 @@ case ${MONS_NUMBER} in
     ;;
   *)
     # Handle it manually
-    dunstify --image=display "yo" "when tf did you get rich"
+    dunstify --icon=display "when did you get rich"
     ;;
+esac
 
-if [[ "$boot" != "yes" ]]; then
-  if [[ $npid == "" ]]; then
-    npid=$(dunstify --image=$nimg "$nsum" "$ndesc" --printid)
-  else
-    dunstify --image=$connectedImg "$connectedSum" "$connectedDesc" --replace=$npid
-  fi
-fi
+dunstify --icon=$nimg "$nsum" "$ndesc"

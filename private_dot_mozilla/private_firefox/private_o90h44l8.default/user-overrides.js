@@ -91,6 +91,5 @@ user_pref("privacy.cpd.history", false);
 
 // userchrome
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("browser.compactmode.show", true);
 user_pref("browser.tabs.drawInTitlebar", true);
-
+user_pref("browser.compactmode.show", true);

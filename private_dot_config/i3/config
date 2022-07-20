@@ -30,6 +30,8 @@ workspace_auto_back_and_forth yes
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex -ae i3
 
+exec --no-startup-id watch_tablet
+
 exec --no-startup-id feh -.rz --bg-scale $HOME/.wallpaper
 
 exec_always --no-startup-id $HOME/.config/i3/i3-alternating-layout/alternating_layouts.py
@@ -170,13 +172,13 @@ set $secondMonitor "HDMI1"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 terms
-set $ws2 files
-set $ws3 firefox
-set $ws4 codium
-set $ws5 spotify
-set $ws6 discord
-set $ws7 chromium
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
