@@ -1,3 +1,6 @@
+alias firefox="MOZ_USE_XINPUT2=1 firefox"
+alias discord-canary="discord-canary --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy"
+
 alias ls="exa -abhl --git"
 
 alias diff="delta"
@@ -10,8 +13,8 @@ alias ssh='TERM=xterm ssh'
 
 alias tb='nc termbin.com 9999'
 
-alias icat='kitty +kitten icat'
-
 alias code='codium'
+
+alias cat='bat'
 
 [ -r "$BASHDOTDIR/aliases.private" ] && source $BASHDOTDIR/aliases.private

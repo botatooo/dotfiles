@@ -2,6 +2,7 @@ input_device: /dev/input/by-path/platform-INTC1051:00-event
 
 modes:
   laptop:
+    - xinput --map-to-output "CUST0000:00 04F3:2ADF" "$(xrandr | grep 'eDP' | cut -d' ' -f1)"
     - xinput enable "AT Translated Set 2 keyboard"
     - xinput enable "DLL0945:00 06CB:CE27 Touchpad"
   tablet:

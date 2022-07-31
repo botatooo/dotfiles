@@ -2,13 +2,14 @@
 
 export BASHDOTDIR=$HOME/.bash
 
-pushd $BASHDOTDIR > /dev/null
-[ -f ".bashrc" ] && source ./.bashrc
-[ -f "env.private" ] && source ./env.private
-[ -f "app-env" ] && source ./app-env
-[ -f "env" ] && source ./env
-popd > /dev/null
+[ -f "$BASHDOTDIR/.bashrc" ] && . $BASHDOTDIR/.bashrc
+[ -f "$BASHDOTDIR/env.private" ] && . $BASHDOTDIR/env.private
+[ -f "$BASHDOTDIR/app-env" ] && . $BASHDOTDIR/app-env
+[ -f "$BASHDOTDIR/env" ] && . $BASHDOTDIR/env
+[ -f "$BASHDOTDIR/aliases" ] && . $BASHDOTDIR/aliases
+[ -f "$BASHDOTDIR/aliases.private" ] && . $BASHDOTDIR/aliases.private
 
+
+[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
 [ -f "/etc/profile.d/devkit-env.sh" ] && source /etc/profile.d/devkit-env.sh
 [ -f "$HOME/.nvm/nvm.sh" ] && source ~/.nvm/nvm.sh
-export PATH=$PATH:/home/botato/.spicetify

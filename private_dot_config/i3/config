@@ -30,35 +30,12 @@ workspace_auto_back_and_forth yes
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex -ae i3
 
-exec --no-startup-id watch_tablet
-
-exec --no-startup-id feh -.rz --bg-scale $HOME/.wallpaper
-
 exec_always --no-startup-id $HOME/.config/i3/i3-alternating-layout/alternating_layouts.py
 
-exec --no-startup-id unclutter --timeout 10
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock -ln dunstify i3lock-fancy -pnf JetBrains-Mono-Regular -t Type password to unlock -- scrot -z
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-# exec --no-startup-id blueman-applet
-
-exec --no-startup-id picom --experimental-backends
-exec --no-startup-id copyq
-exec --no-startup-id sh -c "mons -a -x $HOME/scripts/monitor.sh"
-exec --no-startup-id flameshot
+exec --no-startup-id $HOME/.config/i3/scripts/prestartup
 
 exec --no-startup-id echo "$0: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"
 exec --no-startup-id dbus-send --session --print-reply=literal --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"
-
-exec_always --no-startup-id $HOME/scripts/bar
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -96,45 +73,38 @@ bindsym XF86Search exec --no-startup-id "rofi -modi drun,run -show drun"
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
-bindsym $alt+q exec --no-startup-id "MOZ_USE_XINPUT2=1 firefox"
-bindsym XF86HomePage exec --no-startup-id "MOZ_USE_XINPUT2=1 firefox"
+set $firefox "MOZ_USE_XINPUT2=1 firefox"
+set $discordCanary "discord-canary --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy"
+
+
+bindsym $alt+q exec --no-startup-id $firefox
+bindsym XF86HomePage exec --no-startup-id $firefox
 bindsym $alt+Shift+q exec --no-startup-id "chromium"
 bindsym Shift+XF86HomePage exec --no-startup-id "chromium"
-bindsym $alt+d exec --no-startup-id "discord-canary"
+bindsym $alt+d exec --no-startup-id $discordCanary
 bindsym $alt+s exec --no-startup-id "spotify"
 bindsym $alt+c exec --no-startup-id "codium"
 bindsym $alt+e exec --no-startup-id "element-desktop"
-bindsym $alt+x exec --no-startup-id "dolphin"
+bindsym $alt+x exec --no-startup-id "thunar"
 bindsym XF86Tools exec --no-startup-id "dolphin"
 bindsym $alt+t exec --no-startup-id "alacritty"
 bindsym $alt+m exec --no-startup-id "thunderbird"
 bindsym XF86Mail exec --no-startup-id "thunderbird"
 
 bindsym Print exec --no-startup-id "flameshot gui"
-bindsym Insert exec --no-startup-id "xcolor -s"
+bindsym $mod+Print exec --no-startup-id "flameshot gui -r | $HOME/scripts/flameshot-b2"
+bindsym --release Insert exec --no-startup-id "xcolor -s"
 
 #bindsym $mod+l exec --no-startup-id "loginctl lock-session ${XDG_SESSION_ID-}"
 bindsym $mod+l exec --no-startup-id "$HOME/scripts/lock"
 bindsym $mod+Period exec --no-startup-id "rofimoji"
 
-# bindsym $mod+j focus left
-# bindsym $mod+k focus down
-# bindsym $mod+l focus up
-# bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -190,8 +160,8 @@ workspace $ws4 output $firstMonitor
 workspace $ws5 output $firstMonitor
 workspace $ws6 output $secondMonitor
 workspace $ws7 output $secondMonitor
-workspace $ws8 output $secondMonitor
-workspace $ws9 output $secondMonitor
+workspace $ws8 output $firstMonitor
+workspace $ws9 output $firstMonitor
 workspace $ws10 output $secondMonitor
 
 # switch to workspace
@@ -251,16 +221,12 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-
-
 default_border pixel 0
 hide_edge_borders both
 gaps inner 10
 smart_gaps on
 
-
 for_window [urgent=latest] focus
-
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -271,21 +237,14 @@ for_window [class="manpage"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="Blueberry.py"] floating enable
 
-
-assign [class="alacritty"] $ws1
-assign [class="dolphin"] $ws2
+assign [class="Alacritty"] $ws1
+assign [class="Thunar"] $ws2
 assign [class="ark"] $ws2
 assign [class="firefox"] $ws3
 assign [class="VSCodium"] $ws4
-assign [class="spotify"] $ws5
+assign [class="Spotify"] $ws5
 assign [class="discord"] $ws6
 assign [class="Chromium"] $ws7
 
 
-exec --no-startup-id alacritty
-exec --no-startup-id alacritty
-exec --no-startup-id alacritty
-exec --no-startup-id "MOZ_USE_XINPUT2=1 firefox"
-exec --no-startup-id codium
-exec --no-startup-id spotify
-exec --no-startup-id discord-canary
+exec --no-startup-id $HOME/.config/i3/scripts/startup

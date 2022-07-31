@@ -1,14 +1,26 @@
 {
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Bearded Theme Arc",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'Material Design Icons', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
+    "editor.fontFamily": "'Material Design Icons', 'Comic Code', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
     "python.languageServer": "Pylance",
     "python.formatting.provider": "black",
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust",
+    },
     "diffEditor.ignoreTrimWhitespace": false,
     "git.autofetch": true,
     "window.zoomLevel": 1,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
