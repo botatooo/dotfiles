@@ -26,6 +26,9 @@ x-scheme-handler/tg=userapp-Telegram Desktop-NG7AP1.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
 video/quicktime=vlc.desktop;
 video/mp4=vlc.desktop;
+video/webm=mpv.desktop;
+audio/mpeg=audacity.desktop;
+image/png=org.kde.gwenview.desktop;
 
 [Default Applications]
 application/x-extension-htm=firefox.desktop;

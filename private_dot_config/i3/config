@@ -91,8 +91,8 @@ bindsym $alt+t exec --no-startup-id "alacritty"
 bindsym $alt+m exec --no-startup-id "thunderbird"
 bindsym XF86Mail exec --no-startup-id "thunderbird"
 
-bindsym Print exec --no-startup-id "flameshot gui"
-bindsym $mod+Print exec --no-startup-id "flameshot gui -r | $HOME/scripts/flameshot-b2"
+bindsym Print exec --no-startup-id "flameshot gui -r | $HOME/scripts/flameshot-b2"
+bindsym $mod+Print exec --no-startup-id "flameshot gui -r"
 bindsym --release Insert exec --no-startup-id "xcolor -s"
 
 #bindsym $mod+l exec --no-startup-id "loginctl lock-session ${XDG_SESSION_ID-}"
