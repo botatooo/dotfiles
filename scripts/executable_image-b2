@@ -45,5 +45,6 @@ fullurl="$url$filename"
 
 echo $fullurl >> ~/Pictures/screenshots.txt
 notify-send -a flameshot -u normal -i $1 'Screenshot Uploaded' $fullurl
+copyq copy $fullurl
 
 echo $fullurl
