@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# workspace 1
+i3-msg "workspace 1;exec --no-startup-id alacritty"
+i3-msg "workspace 1;exec --no-startup-id alacritty"
+i3-msg "workspace 1;exec --no-startup-id alacritty"
+sleep 1
+
+# Setup Workspace 2
+i3-msg "workspace 2; exec --no-startup-id thunar"
+sleep 1
+
+# Setup Workspace 3
+i3-msg "workspace 3; exec --no-startup-id MOZ_USE_XINPUT2=1 firefox"
+sleep 1
+
+# Setup Workspace 4
+i3-msg "workspace 4; exec --no-startup-id codium"
+sleep 1
+
+# Setup Workspace 5
+i3-msg "workspace 5; exec --no-startup-id spotify"
+sleep 1
+
+# Setup Workspace 6
+i3-msg "workspace 6; exec --no-startup-id discord-canary --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=TurnOffStreamingMediaCachingOnBattery,VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy --force_low_power_gpu"
+sleep 1
+
+# Back to Workspace 1
+i3-msg "workspace 1"
+
+# stuf
+exec $HOME/scripts/bar &
+exec feh -.rz --bg-scale $HOME/.wallpaper &
+exec copyq &
+exec nm-applet &
+exec blueman-applet &

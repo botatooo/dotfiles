@@ -1,0 +1,9 @@
+#!/bin/bash
+
+exec unclutter --timeout 10 &
+exec xss-lock -ln dunstify i3lock-fancy -pnf JetBrains-Mono-Regular -t Type password to unlock -- scrot -z &
+exec picom --experimental-backends &
+exec mons -a -x $HOME/scripts/monitor.sh &
+exec flameshot &
+
+watch_tablet &
