@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 
-cp /dev/stdin /tmp/image.png
+cat > /tmp/image.png
 
-$HOME/scripts/image-b2 /tmp/image.png
-# Script already provides regular url, provide fake deletion url
-echo "https://fakedeleteurl.yes"
-
-rm /tmp/image.png
+if grep -Fxq ".*aborted.*"; then
+	dunstify --appname com.flameshot.Flameshot "Upload aborted."
+else
+	$HOME/scripts/image-b2 /tmp/image.png
+fi

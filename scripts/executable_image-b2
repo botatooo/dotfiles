@@ -12,9 +12,9 @@ fi
 
 url="https://cdn.botato.gq/"
 
-#adjectives="$HOME/scripts/adjectives.txt"
-#animals="$HOME/scripts/animals.txt"
-#emojis="$HOME/scripts/emojis.txt"
+# adjectives="$HOME/scripts/adjectives.txt"
+# animals="$HOME/scripts/animals.txt"
+# emojis="$HOME/scripts/emojis.txt"
 
 # Get date path (format: YYYY/MM/DD)
 # date=$(date +%Y/%m/%d)
@@ -29,22 +29,25 @@ url="https://cdn.botato.gq/"
 shtuff=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 10 | head -n 1)
 
 #file="Flameshot/${date}/${adjective}${animal}_${emoji1}${emoji2}${emoji3}.${1##*.}"
-file="i/${shtuff}.${1##*.}"
+file="${shtuff}.${1##*.}"
+path="i/${file}"
 
-a=$(b2 upload_file botato-img-host $1 "$file" --noProgress)
+response=$(b2 upload_file botato-img-host $1 "$path" --noProgress)
 
-json=$(echo $a | grep -o '\{.*\}$')
+json=$(echo $response | grep -o '\{.*\}$')
 filename=$(echo $json | jq -r '.fileName')
 
 if [[ -z $filename ]]; then
-  notify-send -u critical -i org.flameshot.Flameshot 'Screenshot Upload Error' 'The server returned null or did not respond in time'
+  dunstify --urgency critical --appname org.flameshot.Flameshot 'Screenshot Upload Error' 'The server returned null or did not respond in time'
   exit 1
 fi
 
 fullurl="$url$filename"
 
 echo $fullurl >> ~/Pictures/screenshots.txt
-notify-send -a flameshot -u normal -i $1 'Screenshot Uploaded' $fullurl
+dunstify --appname org.flameshot.Flameshot --urgency normal --raw_icon $(cat $1) 'Screenshot Uploaded' $fullurl
 copyq copy $fullurl
 
 echo $fullurl
+
+# micro: ft:shell
