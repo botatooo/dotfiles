@@ -1,29 +1,53 @@
 {
-    "workbench.colorTheme": "Bearded Theme Arc",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'Material Design Icons', 'Comic Code', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
-    "python.languageServer": "Pylance",
-    "python.formatting.provider": "black",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust",
-    },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.autofetch": true,
-    "window.zoomLevel": 1,
-    "security.workspace.trust.untrustedFiles": "open",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+  "workbench.colorTheme": "Min Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'Material Design Icons', 'Comic Code', 'JetBrainsMono Nerd Font', 'Noto Sans Mono', monospace",
+  "python.languageServer": "Pylance",
+  "python.formatting.provider": "black",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.autofetch": true,
+  "window.zoomLevel": 1,
+  "security.workspace.trust.untrustedFiles": "open",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  // "editor.inlayHints.fontFamily": "",
+  "editor.inlayHints.fontSize": 13,
+  "editor.inlayHints.padding": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "audioCues.noInlayHints": "on"
 }

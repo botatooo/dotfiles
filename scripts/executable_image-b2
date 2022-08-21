@@ -29,8 +29,24 @@ url="https://cdn.botato.gq/"
 shtuff=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 10 | head -n 1)
 
 #file="Flameshot/${date}/${adjective}${animal}_${emoji1}${emoji2}${emoji3}.${1##*.}"
-file="${shtuff}.${1##*.}"
-path="i/${file}"
+if [[ $1 == /tmp/image.png ]]; then
+  file="${shtuff}.${1##*.}"
+else
+  file="$(basename $1)"
+fi
+
+fileType=$(file --mime-type -b $1 | tr "/" " " | awk '{print $1}')
+
+case $fileType in
+  "application") path="d/${file}" ;;
+  "audio") path="a/${file}" ;;
+  "font") path="font/${file}" ;;
+  "image") path="i/${file}" ;;
+  "model") path="3d/${file}" ;;
+  "text") path="t/${file}" ;;
+  "video") path="v/${file}" ;;
+  *) echo "Unknown file type" && exit 1 ;;
+esac
 
 response=$(b2 upload_file botato-img-host $1 "$path" --noProgress)
 
@@ -45,7 +61,7 @@ fi
 fullurl="$url$filename"
 
 echo $fullurl >> ~/Pictures/screenshots.txt
-dunstify --appname org.flameshot.Flameshot --urgency normal --raw_icon $(cat $1) 'Screenshot Uploaded' $fullurl
+dunstify --appname=org.flameshot.Flameshot --urgency=normal --icon=$1 "Screenshot Uploaded" $fullurl
 copyq copy $fullurl
 
 echo $fullurl

@@ -30,6 +30,8 @@ video/webm=mpv.desktop;
 audio/mpeg=audacity.desktop;
 image/png=org.kde.gwenview.desktop;
 application/pdf=okularApplication_pdf.desktop;
+image/jpeg=gimp.desktop;
+audio/x-wav=vlc.desktop;
 
 [Default Applications]
 application/x-extension-htm=firefox.desktop;

@@ -1,11 +1,10 @@
 #!/bin/bash
-
 set -e
 
 cat > /tmp/image.png
 
-if grep -Fxq ".*aborted.*"; then
-	dunstify --appname com.flameshot.Flameshot "Upload aborted."
-else
+if [ -s /tmp/image.png ]; then
 	$HOME/scripts/image-b2 /tmp/image.png
+else
+	dunstify --appname com.flameshot.Flameshot 'Flameshot Info' 'Upload aborted.'
 fi

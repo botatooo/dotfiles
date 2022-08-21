@@ -32,14 +32,12 @@ user_pref("javascript.options.wasm", true);
 user_pref("media.navigator.enabled", true);
 user_pref("dom.webaudio.enabled", true);
 user_pref("accessibility.force_disabled", 0); // this probably breaks KDE stuff
-user_pref("browser.pagethumbnails.capturing_disabled", false); // [HIDDEN PREF]
-user_pref("browser.display.use_system_colors", true); // [DEFAULT: false]
 user_pref("privacy.sanitize.sanitizeOnShutdown", false);
 user_pref("privacy.resistFingerprinting", false);
 user_pref("privacy.resistFingerprinting.letterboxing", false); // [HIDDEN PREF]
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", false); // [HIDDEN PREF]
 user_pref("ui.prefersReducedMotion", 0); // [HIDDEN PREF]
-user_pref("general.useragent.override", "Mozilla/5.0 (Linux; rv:78.0) Gecko/20100101 Firefox/78.0");
+// user_pref("general.useragent.override", "Mozilla/5.0 (Linux; rv:78.0) Gecko/20100101 Firefox/78.0");
 user_pref("keyword.enabled", true);
 
 
