@@ -6,5 +6,6 @@ modes:
     - xinput enable "AT Translated Set 2 keyboard"
     - xinput enable "DLL0945:00 06CB:CE27 Touchpad"
   tablet:
+    - xinput --map-to-output "CUST0000:00 04F3:2ADF" "$(xrandr | grep 'eDP' | cut -d' ' -f1)"
     - xinput disable "AT Translated Set 2 keyboard"
     - xinput disable "DLL0945:00 06CB:CE27 Touchpad"

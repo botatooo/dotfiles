@@ -13,3 +13,8 @@ export BASHDOTDIR=$HOME/.bash
 [ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
 [ -f "/etc/profile.d/devkit-env.sh" ] && source /etc/profile.d/devkit-env.sh
 [ -f "$HOME/.nvm/nvm.sh" ] && source ~/.nvm/nvm.sh
+
+# pnpm
+export PNPM_HOME="/home/botato/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

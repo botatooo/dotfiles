@@ -1,5 +1,7 @@
 #!/bin/bash
 
+xinput --map-to-output "CUST0000:00 04F3:2ADF" "$(xrandr | grep 'eDP' | cut -d' ' -f1)"
+
 exec unclutter --timeout 10 &
 exec xss-lock -ln dunstify i3lock-fancy -pnf JetBrains-Mono-Regular -t Type password to unlock -- scrot -z &
 exec picom --experimental-backends &
