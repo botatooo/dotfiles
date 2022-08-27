@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 function capitalize_first_word() {
-  sed 's/^./\u&/g' <<< "$@"
+  sed 's/^./\u&/g' <<<"$@"
 }
 
 if [ -z "$1" ] || [ ! -f $1 ]; then
-    echo "No image path supplied"
-    exit 1
+  echo "No image path supplied"
+  exit 1
 fi
 
 url="https://cdn.botato.gq/"
@@ -37,20 +37,19 @@ fi
 fileType=$(file --mime-type -b $1 | tr "/" " " | awk '{print $1}')
 
 case $fileType in
-  "application") path="d/${file}" ;;
-  "audio") path="a/${file}" ;;
-  "font") path="font/${file}" ;;
-  "image") path="i/${file}" ;;
-  "model") path="3d/${file}" ;;
-  "text") path="t/${file}" ;;
-  "video") path="v/${file}" ;;
-  *) echo "Unknown file type" && exit 1 ;;
+"application") path="d/${file}" ;;
+"audio") path="a/${file}" ;;
+"font") path="font/${file}" ;;
+"image") path="i/${file}" ;;
+"model") path="3d/${file}" ;;
+"text") path="t/${file}" ;;
+"video") path="v/${file}" ;;
+*) echo "Unknown file type" && exit 1 ;;
 esac
-
 
 if zenity --question --text="Do you want to delete the file after 24 hours?"; then
   timestamp=$(date +%s%N --date='tomorrow' | cut -b1-13)
-  response=$(b2 upload_file botato-img-host $1 "$path" --noProgress --retainUntil $timestamp)
+  response=$(b2 upload_file botato-img-host $1 --retainUntil $timestamp "$path" --noProgress)
 else
   response=$(b2 upload_file botato-img-host $1 "$path" --noProgress)
 fi
@@ -65,7 +64,7 @@ fi
 
 fullurl="$url$filename"
 
-echo $fullurl >> ~/Pictures/screenshots.txt
+echo $fullurl >>~/Pictures/screenshots.txt
 dunstify --appname=org.flameshot.Flameshot --urgency=normal --icon=$1 "Screenshot Uploaded" $fullurl
 copyq copy $fullurl
 
